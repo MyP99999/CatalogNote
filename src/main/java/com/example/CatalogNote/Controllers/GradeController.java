@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/grades")
 public class GradeController {
@@ -42,8 +43,8 @@ public class GradeController {
         return gradeService.getAllGrades();
     }
 
-    @GetMapping("/student/{studentId}")
-    public List<Grade> getGradesByStudentId(@PathVariable Integer studentId) {
-        return gradeService.getGradesByStudentId(studentId);
-    }
+//    @GetMapping("/student/{studentId}")
+//    public List<Grade> getGradesByStudentId(@PathVariable Integer studentId) {
+//        return gradeService.getGradesByStudentId(studentId);
+//    }
 }

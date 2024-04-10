@@ -19,7 +19,7 @@ public class Grade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer grade_id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "student_id")
     private User student;
 
@@ -27,4 +27,9 @@ public class Grade {
     private Integer value;
 
     private LocalDateTime date_added;
+
+    @PrePersist
+    protected void onCreate() {
+        date_added = LocalDateTime.now();
+    }
 }
